@@ -59,9 +59,10 @@ var DefaultClient Pathio = &Client{}
 
 // NewClient creates a new client that utilizes the provided AWS config. This can
 // be leveraged to enforce more limited permissions.
-func NewClient(cfg *aws.Config) *Client {
+func NewClient(cfg *aws.Config, isEnabled bool) *Client {
 	return &Client{
 		providedConfig: cfg,
+    disableS3Encryption: isEnabled,
 	}
 }
 
